@@ -46,35 +46,7 @@ public class ConfirmationPageController {
 		this.callingController = busReservationController;
 	}
 	
-	public void setName(String name) {
-		this.name = name;
-		System.out.println(this.name + " , " + name);
-		nameLabel.setText(this.name);
-	}
-	
-	public void setdestinationLabel(String destination){
-		this.destination = destination;
-		destinationLabel.setText(this.destination);
-		
-	}
-	
-	public void setTravelDateLabel(String travelDate){
-		this.travelDate = travelDate;
-		travelDateLabel.setText(this.travelDate);
-		
-	}
-	
-	public void setpickUpTimeLabel(String pickuptime){
-		this.pickuptime = pickuptime;
-		pickUpTimeLabel.setText(this.pickuptime);
-		
-	}
-	
-	public void setpickUpLocationLabel(String pickupLocation){
-		this.pickupLocation = pickupLocation;
-		pickUpLocationLabel.setText(this.pickupLocation);
-		
-	}
+	// Write the public methods here for setting the values to lable
 
 	// Event Listener on Button[#cancelButton].onAction
 	@FXML
