@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BusReservationController">
+   <children>
+      <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="400.0" text="Campus Commute">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Separator layoutY="60.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="5.0" prefWidth="400.0" />
+      <Label alignment="CENTER" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="120.0" text="Travelling to : ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="bloomingtonRadio" layoutX="125.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#bloomingtonSelected" prefHeight="40.0" prefWidth="120.0" text="Bloomington">
+         <toggleGroup>
+            <ToggleGroup fx:id="placeGroup" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="indyRadio" layoutX="250.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#indySelected" prefHeight="40.0" prefWidth="120.0" text="Indianapolis" toggleGroup="$placeGroup" />
+      <Separator layoutY="115.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="5.0" prefWidth="400.0" />
+      <Label alignment="CENTER" layoutX="50.0" layoutY="125.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0" text="Date:" />
+      <DatePicker fx:id="travelDate" layoutX="160.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" />
+      <Separator layoutY="170.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="5.0" prefWidth="400.0" />
+      <Label alignment="CENTER" layoutX="75.0" layoutY="185.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0" text="Time" />
+      <ComboBox fx:id="timeCombo" layoutX="175.0" layoutY="191.0" prefWidth="150.0" />
+      <Separator layoutY="230.0" prefHeight="5.0" prefWidth="400.0" />
+      <Label alignment="CENTER" layoutX="50.0" layoutY="240.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="120.0" text="Pickup Location" />
+      <ComboBox fx:id="locationCombo" layoutX="175.0" layoutY="245.0" prefWidth="150.0" />
+      <Separator layoutY="285.0" prefHeight="5.0" prefWidth="400.0" />
+      <Label alignment="CENTER" layoutX="50.0" layoutY="300.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0" text="Name" />
+      <TextField fx:id="nameField" layoutX="175.0" layoutY="304.0" />
+      <Separator layoutY="350.0" prefHeight="5.0" prefWidth="400.0" />
+      <Button fx:id="clearButton" layoutX="75.0" layoutY="360.0" mnemonicParsing="false" onAction="#clearButtonClicked" prefWidth="100.0" text="Clear" />
+      <Button fx:id="proceedButton" layoutX="225.0" layoutY="360.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#proceedButtonClicked" prefWidth="100.0" text="Proceed" />
+      <Label fx:id="messageLabel" alignment="CENTER" layoutX="50.0" layoutY="400.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" />
+   </children>
+</AnchorPane>
