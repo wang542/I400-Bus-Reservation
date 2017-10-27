@@ -120,7 +120,12 @@ public class BusReservationController {
 			ConfirmationPageController summaryController = (ConfirmationPageController) loader.getController();
 			
 			// Write Code to pass travel summary details to Confirmation page
-			
+			//Use setters to set value for each label in OrderConfirmation page
+			summaryController.setName(name);
+			summaryController.setDestination(travellingTo);
+			summaryController.setTravelDate(date);
+			summaryController.setPickuptime(time);
+			summaryController.setPickuplocation(pickUpLocation);
 			
 			
 			
@@ -137,5 +142,17 @@ public class BusReservationController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	//clear method for clearing the fields in BusReservation Page
+	public void clearOrder() {
+		bloomingtonRadio.setSelected(false);
+		indyRadio.setSelected(false);
+		nameField.clear();
+		travelDate.setValue(null);
+		timeCombo.setValue("");
+		locationCombo.setValue("");
+	
+		
 	}
 }

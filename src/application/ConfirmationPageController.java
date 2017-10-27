@@ -29,7 +29,7 @@ public class ConfirmationPageController {
 	private Button cancelButton;
 	@FXML
 	private Button finishButton;
-
+	@FXML
 	private BusReservationController callingController;
 	
 	private String name = "";
@@ -47,7 +47,33 @@ public class ConfirmationPageController {
 	}
 	
 	// Write the public methods here for setting the values to lable
-
+	//Setters for each label
+	@FXML
+	public void setName(String name) {
+		nameLabel.setText(name);
+	}
+	
+	@FXML
+	public void setDestination(String desti) {
+		destinationLabel.setText(desti);
+	}
+	
+	@FXML
+	public void setTravelDate(String date) {
+		travelDateLabel.setText(date);
+	}
+	
+	@FXML
+	public void setPickuptime(String time) {
+		pickUpTimeLabel.setText(time);
+	}
+	
+	@FXML 
+	public void setPickuplocation(String location) {
+		pickUpLocationLabel.setText(location);
+	}
+	
+	
 	// Event Listener on Button[#cancelButton].onAction
 	@FXML
 	public void cancelButtonClicked(ActionEvent event) {
@@ -60,6 +86,11 @@ public class ConfirmationPageController {
 	public void finishButtonClicked(ActionEvent event) {
 		
 		// Write your code here
+		//call the clear method in BusReservationController to clear the fields in BusReservation window
+		callingController.clearOrder();
+		
+		
+		
 		
 	}
 }
