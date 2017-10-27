@@ -48,6 +48,11 @@ public class BusReservationController {
 	private Label messageLabel;
 	@FXML
 	private TextField nameField;
+	//Trie to limit opening confirmation page by checking if stage is null, not working
+	@FXML
+	private Stage dialogStage;
+	
+	private ConfirmationPageController confirmationcontroller;
 
 	private ArrayList<String> indyPickup = new ArrayList<String>(Arrays.asList("Campus Center", " State House"));
 
@@ -58,7 +63,9 @@ public class BusReservationController {
 
 	private ArrayList<String> indyTime = new ArrayList<String>(
 			Arrays.asList("8:15 am", "11:15 am", "3:15 pm", "6:15 pm"));
-
+	
+	//initiate a counter to use for limiting to opening confirmation page only once
+	int counter=0;
 	String travellingTo = "";
 	String date = "";
 	String pickUpLocation = "";
@@ -108,9 +115,10 @@ public class BusReservationController {
 		pickUpLocation = locationCombo.getValue().toString();
 		name = nameField.getText();
 		
+		//only open the new window when counter is 0
+		if (counter==0) {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/ConfirmationPage.fxml"));
 		AnchorPane dialogRoot;
-
 		// setting the stage, creating a controller object and loading the window
 		try {
 			dialogRoot = (AnchorPane) loader.load();
@@ -122,26 +130,26 @@ public class BusReservationController {
 			// Write Code to pass travel summary details to Confirmation page
 			//Use setters to set value for each label in OrderConfirmation page
 			summaryController.setName(name);
-			summaryController.setDestination(travellingTo);
-			summaryController.setTravelDate(date);
-			summaryController.setPickuptime(time);
-			summaryController.setPickuplocation(pickUpLocation);
-			
-			
-			
-			
-			
-			
-			
-			
-			
+			summaryController.setDestination("Destination: "+travellingTo);
+			summaryController.setTravelDate("Travel Date: "+date);
+			summaryController.setPickuptime("Pick Up Time: "+time);
+			summaryController.setPickuplocation("Pick Up Location: "+pickUpLocation);
 			// passing the controller to OrderSummary GUI
 			summaryController.setCallingController(this);
 			dialogStage.show();
 			System.out.println("After dialogStage.show(), reservation summary window opened");
+			
+			//Set the counter to any number other than 0, here i set it to 1
+			//if counter is not 0, new window will not open
+			
+			counter=1;
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		}
+		
+		
 	}
 	
 	//clear method for clearing the fields in BusReservation Page

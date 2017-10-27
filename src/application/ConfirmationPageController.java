@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 public class ConfirmationPageController {
 	@FXML
@@ -79,6 +80,9 @@ public class ConfirmationPageController {
 	public void cancelButtonClicked(ActionEvent event) {
 		
 		// Write your code here
+		//cancel button will return control to bus reservation window
+		Stage stage=(Stage) cancelButton.getScene().getWindow();
+		stage.close();
 
 	}
 	// Event Listener on Button[#finishButton].onAction
@@ -88,6 +92,8 @@ public class ConfirmationPageController {
 		// Write your code here
 		//call the clear method in BusReservationController to clear the fields in BusReservation window
 		callingController.clearOrder();
+		
+		
 		
 		
 		
